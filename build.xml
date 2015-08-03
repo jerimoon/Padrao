@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="tomcat-server-start" name="projeto_padrao">
+	<property environment="env"/>
+	<property file="build.properties"/>
+
+	<target	name="mda" >
+		
+	</target>
+	<target	name="atualizaResources" description="atualiza os arquivos de configurações locais">
+
+		<copy todir="${basedir}/WebContent/WEB-INF/">
+			<fileset dir="${basedir}/resource">
+				<include name="*.xml"/>
+			</fileset>
+		</copy> 
+		<copy todir="${basedir}/WebContent/WEB-INF/classes"  verbose="true" overwrite="true" >
+			<fileset dir="${basedir}\generated\resource"   >
+			<exclude name="*.properties"/>
+				<include name="**/*.hbm.xml"/>
+			</fileset>
+			<fileset dir="${basedir}/resource">
+				<include name="*.properties"/>
+			</fileset>
+			
+	    </copy>
+		<copy file="${basedir}/WebContent/WEB-INF/classes/labels.properties"  verbose="true" overwrite="true" tofile="${basedir}/WebContent/WEB-INF/classes/MessageResources.properties" >
+		</copy>
+		
+		
+
+		</target>
+
+	
+
+	<target	name="deployBase" description="deployBase" depends="atualizaResources">
+
+		<!-- Deletando o diretorio temporario -->
+		<delete dir="/deploy_temp"/>
+
+
+		<!-- Criando o diretorio temporario das configurações -->
+		<mkdir dir="/deploy_temp/configuracao"/>
+
+		<!-- Copiando o conteudo do prontuario para o diretorio destino -->
+		<copy todir="/deploy_temp/projeto_padrao">
+			<fileset dir="${basedir}/WebContent">
+				<exclude name="**/*CVS*"/>
+			</fileset>
+		</copy>
+
+		<!-- Copiando o conteudo da configuracao para o diretorio destino -->
+		<copy todir="/deploy_temp/configuracao/">
+			<fileset dir="${basedir}/resource/">
+				<include name="*.properties"/>
+			</fileset>
+		</copy>
+
+		<!-- gerando o War -->
+		<war destfile="/deploy_temp/projeto_padrao.war" basedir="/deploy_temp/projeto_padrao" compress="true" webxml="/deploy_temp/projeto_padrao/WEB-INF/web.xml"/>
+
+		<!-- gerando o Zip da configuracao -->
+		<zip destfile="/deploy_temp/configuracao.zip" basedir="/deploy_temp/configuracao" compress="true" />
+
+	</target>
+
+
+
+
+    <target name="package-web" description="Empacota o sistema">
+		<echo message="Sistema empacotado"/>
+	</target>
+
+
+
+
+
+
+
+
+	<target name="tomcat-server-start" description="Start Tomcat" depends="atualizaResources">
+		<java classname="org.apache.catalina.startup.Bootstrap" fork="yes" newenvironment="true" classpath="${classpath-tomcat}">
+			<jvmarg value="-Dcatalina.home=${tomcat.home}"/>
+			<jvmarg value="-Xdebug"/>
+			<jvmarg value="-XX:MaxPermSize=128m"/>
+			<jvmarg value="-Xrunjdwp:transport=dt_socket,address=localhost:8000,server=y,suspend=n"/>
+			
+			
+			  
+			<arg value="start"/>
+			<classpath>
+			    <fileset dir="${tomcat.home}">
+			        <include name="bin/bootstrap.jar"/>
+			        <include name="server/catalina.jar"/>
+			    </fileset>
+			</classpath>
+		</java>
+	</target>
+
+    <target name="tomcat-server-stop" description="Stop Tomcat">
+        <java classname="org.apache.catalina.startup.Bootstrap" fork="yes">
+            <jvmarg value="-Dcatalina.home=${tomcat.home}"/>
+            <arg value="stop"/>
+            <classpath>
+                <fileset dir="${tomcat.home}">
+                    <include name="bin/bootstrap.jar"/>
+                    <include name="server/catalina.jar"/>
+                </fileset>
+            </classpath>
+        </java>
+    </target>
+	 <target name="clean-work" description="Limpar pasta work">
+		<delete><fileset dir="\workspace\libra\web\work\org\apache"></fileset></delete>
+	 </target>
+ 
+
+</project>

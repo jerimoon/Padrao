@@ -1,0 +1,318 @@
+/* PAGE STRUCTURE */
+#container {
+	position: relative;
+	width: 100%;
+	min-width: 760px;
+	padding: 0;
+	padding-bottom: 30px;
+}
+
+#content {
+	margin: 10px 15px;
+	margin-left:20px;
+	margin-bottom:5%;
+	margin-top: 105px;
+}
+
+#header {
+	width: 100%;
+}
+
+#content-main {
+	float: left;
+	width: 100%;
+	clear: both;
+	margin: 0 auto;
+	overflow: visible;
+	padding-bottom: 30px;
+}
+
+#content-related {
+	float: right;
+	width: 18em;
+	position: relative;
+	margin-right: -19em;
+}
+
+#footer {
+	clear: both;
+	padding: 0 0px 0 0px;
+}
+
+/*  COLUMN TYPES  */
+.colMS {
+	margin-right: 20em !important;
+}
+
+.colSM {
+	margin-left: 20em !important;
+}
+
+.colSM #content-related {
+	float: left;
+	margin-right: 0;
+	margin-left: -19em;
+}
+
+.colSM #content-main {
+	float: right;
+}
+
+.popup .colM {
+	width: 95%;
+}
+
+.subcol {
+	float: left;
+	width: 46%;
+	margin-right: 15px;
+}
+
+.dashboard #content {
+	width: 500px;
+}
+
+/*  HEADER  */
+#header {
+	background: url(../img/sisbase/bg_topo.png) #014286 repeat-x;
+	height: 73px;
+	color: #ffc;
+	overflow: hidden;
+	position:fixed;
+	bottom: 0;
+	top:0%;
+	z-index: 123;
+}
+
+
+
+#header #logo {
+	width: 69px;
+	height: 64px;
+	background: url(../img/sisbase/brasao_topo.png) no-repeat;
+	float: left;
+	margin-top: 8px;
+	margin-left: 20px;
+	_margin-top: 0;
+}
+
+#header a:link,#header a:visited {
+	color: white;
+}
+
+#header a:hover {
+	text-decoration: underline;
+}
+
+#branding h1 {
+	padding: 0 10px;
+	font-size: 18px !important;
+	margin: 0px 0 !important;
+	font-weight: normal;
+	color: #f4f379;
+}
+
+#branding #site-name {
+	padding-top: 10px !important;
+	height: 24px !important;
+	font-weight: bold;
+}
+
+#branding h2 {
+	padding: 0 10px;
+	font-size: 14px;
+	margin: 0px 0 17px 0;
+	font-weight: normal;
+	color: #ffc;
+}
+
+#user-tools {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 1.2em 10px;
+	font-size: 11px;
+	text-align: right;
+}
+
+/* SIDEBAR */
+#content-related h3 {
+	font-size: 12px;
+	color: #666;
+	margin-bottom: 3px;
+}
+
+#content-related h4 {
+	font-size: 11px;
+}
+
+#content-related .module h2 {
+	background: #eee url(../img/admin/nav-bg.gif) bottom left repeat-x;
+	color: #666;
+}
+
+/* FOOTER  */
+#footer {
+	background-image:url("../img/sisbase/bg_footer3.png");
+	background-repeat:repeat-x;
+	background-color:#fff;
+
+	border-top: 1px solid #9C9C9C;
+	bottom: 0;
+	height: 10%;
+	padding-top: 0px;
+	width: 100%;
+	position:fixed;
+	top:94%;
+	bottom:0%;
+}
+
+
+#footer #itec {
+	display: block;
+	
+	float: right;
+	height: 95%;
+	margin-bottom: 5% !important;
+	
+	width: 154px;
+}
+
+#footer #itec span {
+	display: none
+}
+
+#footer a {
+	#margin-top: 0px !important;
+	color: #4F4F4F !important;
+	text-decoration: none;
+	#margin-bottom: 5px !important;
+	height: 95%;
+}
+
+.footer_esquerda {
+	margin-top: 0px !important;
+	float:left;
+	font-size:10px;
+	width:90%;
+	height:95%;
+	color:#363636;
+	text-decoration: none;
+	text-align:right;
+	margin-bottom: 5% !important;
+
+}
+.footer_direita {
+	margin-top: 0px !important;
+	float:right;
+	width:10%;
+	color:#363636 !important;
+	text-decoration: none;
+	height:95%;
+	margin-bottom: 5px !important;
+
+}
+.imagem_esquerda {
+	float: right;
+	margin-top:1px !important;
+	margin-right: 5px;
+	margin-bottom: 15px;
+}
+.ui-tabs .ui-tabs-hide {
+	display: none;
+}
+
+.ui-helper-clearfix {
+	display: inline-block;
+}
+
+.ui-tabs-selected {
+	background-color: #fff;
+	border-top: 1px solid #bbb;
+	border-left: 1px solid #bbb;
+	border-right: 1px solid #bbb;
+	height: 13px;
+}
+
+.tab ul {
+	list-style: none !important;
+	margin: 5px 0 0 0;
+	padding: 0;
+	position: relative;
+	z-index: 99;
+}
+
+.tab ul li {
+	list-style-type: none;
+	float: left;
+	padding: 7px 7px;
+	-moz-border-radius-topleft: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-right-radius: 5px;
+}
+
+.index_page {
+	margin-top: 0px !important;
+	height:420px;
+	color:#363636 !important;
+	text-decoration: none;
+}
+.conteudo_index {
+	margin-top: 90px;
+	text-align:center;
+		
+}
+
+/*
+	MODAL
+*/
+#mask {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 9000;
+	background-color: #000;
+	display: none;
+}
+
+#boxes .window {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 440px;
+	height: 200px;
+	display: none;
+	z-index: 200000;
+	padding: 20px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+#boxes #dialog {
+	width: 200px;
+	height: 150px;
+	padding: 10px;
+	background-color: #ffffff;
+	font-size: 12px;
+	border: 1px solid #e5e5e5;
+}
+
+#botoes-modal {
+	padding-left: 43px;
+	text-align: center;
+	width: 200px;
+	padding-top: 30px;
+}
+
+.confirmar {
+	display: block;
+	float: left;
+	padding-right: 10px;
+}
+
+.close {
+	display: block;
+	float: left;
+	padding-left: 10px;
+}

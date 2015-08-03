@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+<form-beans>
+<form-bean name="relatorioForm" type="br.gov.al.itec.scf.veiculo.struts.RelatorioActionForm"/>
+</form-beans>
+	<!-- ================================================ Form Bean Definitions -->
+	<!-- =================================================DynaActionForm include -->
+	<!--
+			java.math.BigDecimal
+			java.math.BigInteger
+			boolean and java.lang.Boolean
+			byte and java.lang.Byte
+			char and java.lang.Character
+			java.lang.Class
+			double and java.lang.Double
+			float and java.lang.Float
+			int and java.lang.Integer
+			long and java.lang.Long
+			short and java.lang.Short
+			java.lang.String
+			java.sql.Date
+			java.sql.Time
+			java.sql.Timestamp
+			upload - org.apache.struts.upload.FormFile
+	 -->
+
+	
+
+<!-- ========================================= Global Exception Definitions -->
+
+    <global-exceptions>
+        <!-- sample exception handler
+        <exception
+            key="expired.password"
+            type="app.ExpiredPasswordException"
+            path="/changePassword.jsp"/>
+        end sample -->
+    </global-exceptions>
+
+
+<!-- =========================================== Global Forward Definitions -->
+
+    <global-forwards>
+        <forward name="erroGeral" path="/erroGeral.jsp"/>
+       	<forward name="telaInicial" 				path=".inicio"/>
+       	<forward name="erroAutenticacao" 				path=".erroAutenticacao"/>
+       	<forward name="sessaoEncerrada" 				path=".sessaoEncerrada"/>
+    </global-forwards>
+
+<!-- =========================================== Action Mapping Definitions -->
+	
+    <action-mappings>
+    <action
+    		path="/inicio"
+	        type="br.gov.al.itec.acesso.entidade.InicioAction"
+	        name="relatorioForm"
+	        scope="request"
+	        input="/geral/inicio.jsp"
+	        validate="false"
+	        parameter="acao">
+			<forward name="carregar" 				path=".inicio"/>
+			<forward name="listaGrupoParametro" 				path=".listaGrupoParametro"/>
+			<forward name="popUpGrupoParametroForm" 				path=".popUpGrupoParametroForm"/>
+    	</action>
+    	
+    	
+
+		<action path="/ajaxUsuario" 
+			type="br.gov.al.itec.acesso.entidade.AjaxUsuarioAction"
+			scope="request"
+			parameter="acao"/>
+
+
+			
+    </action-mappings>
+<!-- ============================================= Controller Configuration -->
+
+    <controller
+       processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+
+<!-- ======================================== Message Resources Definitions -->
+
+    <message-resources key="labels" parameter="labels" />
+    <message-resources key="MessageResources" parameter="MessageResources" />
+    <message-resources parameter="labels" /> 
+
+
+
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+
+      <!-- Path to XML definition file -->
+      <set-property property="definitions-config"
+                       value="/WEB-INF/tiles-defs.xml,/generated/tiles-defGenerated.xml" />
+      <!-- Set Module-awareness to true -->
+      <set-property property="moduleAware" value="true" />
+    </plug-in>
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn" >
+
+      <!-- Path to XML definition file -->
+      
+      
+    </plug-in>
+
+
+</struts-config>
+

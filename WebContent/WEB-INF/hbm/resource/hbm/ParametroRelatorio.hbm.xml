@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+Atencao:
+
+     - Codigo gerado, nao modifique manualmente.
+     - Uso exclusivo para hibernate 3.0
+     - Mapeamento objeto relacional para a entidade: ParametroRelatorio
+     - entidadeHbm.vsl
+     
+-->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="br.gov.al.itec.acesso.entidade.ParametroRelatorio" table="PARAMETRO_RELATORIO" schema="scf" dynamic-insert="true" dynamic-update="true">
+				<id name="codigoParametroRelatorio" type="java.lang.Long">
+            <column name="CD_PARAMETRO_RELATORIO"/>
+            <generator class="sequence">
+                <param name="sequence">scf.SQ_PARAMETRO_RELATORIO</param>
+            </generator> 
+        </id>
+
+								        													        <property name="nomeParametro" type="java.lang.String" not-null="true" lazy="false">
+	            <column name="NM_PARAMETRO" />
+	        </property>
+	                													        <property name="tipoParametro" type="java.lang.String" not-null="true" lazy="false">
+	            <column name="TP_PARAMETRO" />
+	        </property>
+	                													        <property name="mascaraParametro" type="java.lang.String" not-null="true" lazy="false">
+	            <column name="MASCARA_PARAMETRO" />
+	        </property>
+	                							
+		
+				
+					        					<many-to-one name="relatorio" class="br.gov.al.itec.acesso.entidade.Relatorio" fetch="join" column="CD_RELATORIO"  not-null="true"    />
+	    		        	    		    </class>
+</hibernate-mapping>

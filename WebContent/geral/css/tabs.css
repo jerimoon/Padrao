@@ -1,0 +1,90 @@
+
+/**
+ 	CSS para tabs
+**/
+
+
+.comentario { 
+	margin:0 !important; 
+	padding:0;		
+	text-align:left;	
+	color:lightslategray ;
+	font-size:11px;
+}
+
+ul.tabs { 
+	list-style:none; 
+	margin:0 !important; 
+	padding:0;	
+	border-bottom:1px solid #666;	
+	height:30px;
+}
+
+ul.tabs li { 
+	float:left;	 
+	text-indent:0;
+	padding:0;
+	margin:0 !important;
+	list-style-image:none !important; 
+	list-style-type: none;
+}
+
+ul.tabs a { 
+	background: url(../img/admin/blue.png) no-repeat -247px 0;
+	font-size:11px;
+	display:block;
+	height: 30px;  
+	line-height:30px;
+	width: 174px;
+	text-align:center;	
+	text-decoration:none;
+	color:#696969 !important;
+	padding:0px;
+	margin:0px;	
+	position:relative;
+	top:1px;
+}
+
+ul.tabs a:active {
+	outline:none;		
+}
+
+ul.tabs a:hover {
+	background-position: -247px -31px;	
+	color:#fff !important;	
+}
+
+ul.tabs a.current, ul.tabs a.current:hover, ul.tabs li.current a {
+	background-position: -247px -62px;		
+	cursor:default !important; 
+	color:#000 !important;
+}
+
+ul.tabs a.s 			{ background-position: -553px 0; width:81px; }
+ul.tabs a.s:hover 	{ background-position: -553px -31px; }
+ul.tabs a.s.current  { background-position: -553px -62px; }
+
+ul.tabs a.l 			{ background-position: -247px -0px; width:174px; }
+ul.tabs a.l:hover 	{ background-position: -247px -31px; }
+ul.tabs a.l.current  { background-position: -247px -62px; }
+
+
+ul.tabs a.xl 			{ background-position: 0 -0px; width:248px; }
+ul.tabs a.xl:hover 	{ background-position: 0 -31px; }
+ul.tabs a.xl.current { background-position: 0 -62px; }
+ 
+.panes .pane {
+	display:none;		
+}
+
+.panes .aba {
+	display:none;		
+	padding:15px 10px 0px 10px;
+	border:1px solid #999;
+	border-top:0;
+	height:100%;
+	min-height: 250px;
+	font-size:14px;
+	background-color:#fff;
+}
+

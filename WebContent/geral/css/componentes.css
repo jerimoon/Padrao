@@ -1,0 +1,109 @@
+img {
+	border: 0px;
+}
+
+.tabela {
+	width: 100%;
+}
+
+.cabecalho {
+	font-weight: bold;
+	font-family: sans-serif;
+	background-color: teal;
+	text-align: left;
+}
+
+.textArea {
+	min-width: 275px;
+	max-width: 275px;
+	min-height: 75px;
+	max-height: 75px;
+}
+
+.textAreaPerfil {
+	min-width: 325px;
+	max-width: 325px;
+	min-height: 60px;
+	max-height: 60px;
+}
+
+.colunaId {
+	background-color: gray;
+}
+
+.colunaDados {
+	background-color: silver;
+}
+
+.colunaComando {
+	text-align: center;
+}
+
+.linhaImpar {
+	background-color: #9CF;
+}
+
+.linhaPar {
+	background-color: #CFF;
+}
+
+.esquerda {
+	text-align: left;
+}
+
+.centro {
+	text-align: center;
+}
+
+.direita {
+	text-align: right;
+}
+
+.validacao {
+	color: red;
+}
+
+.Alerta_exclamacao td {
+	padding: 10px 0 0 10px !important;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #333333;
+	background-color: #E6FFE6;
+}
+
+.Alerta_interrogacao td {
+	padding: 10px 0 0 10px !important;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #333333;
+	background-color: #ecf0f6;
+}
+
+.Alerta_erro td {
+	padding: 10px 0 0 10px !important;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #333333;
+	background-color: #faf0f0;
+}
+
+.Alerta_informacao td {
+	padding: 10px 0 0 10px !important;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #333333;
+	background-color: #CFC;
+}
+
+.Alerta_seguranca td {
+	padding: 10px 0 0 10px !important;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #333333;
+	background-color: #f4f3e6;
+}

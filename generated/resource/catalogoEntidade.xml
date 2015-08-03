@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<entidadesMetaData>
+	<entidadeMetaData nome="Relatorio" tipo="br.gov.al.itec.acesso.entidade.Relatorio" descricao="Relatorio" tabela="RELATORIO">
+								
+						
+											<atributoMetaData nome="codigoRelatorio" tamanho="BIGINT" tamanhoExibicao="BIGINT" tipo="java.lang.Long" descricao="codigoRelatorio"  identificador='true'   obrigatorio='true'  nomeColuna="CD_RELATORIO"/>
+					
+						
+											<atributoMetaData nome="nomeRelatorio" tamanho="VARCHAR" tamanhoExibicao="VARCHAR" tipo="java.lang.String" descricao="nomeRelatorio"    obrigatorio='true'  nomeColuna="NM_RELATORIO"/>
+					
+						
+											<atributoMetaData nome="nomeArquivo" tamanho="VARCHAR" tamanhoExibicao="VARCHAR" tipo="java.lang.String" descricao="nomeArquivo"    obrigatorio='true'  nomeColuna="NM_ARQUIVO"/>
+					
+						
+											<atributoMetaData nome="descricaoRelatorio" tamanho="300" tamanhoExibicao="300" tipo="java.lang.String" descricao="descricaoRelatorio"    obrigatorio='true'  nomeColuna="DS_RELATORIO"/>
+										
+						
+		<associacaoMetaData nome="listaParametro" tipo="br.gov.al.itec.acesso.entidade.ParametroRelatorio" referencia="ParametroRelatorio" lista='true' descricao="ParametroRelatorio" />
+			</entidadeMetaData>
+	<entidadeMetaData nome="ParametroRelatorio" tipo="br.gov.al.itec.acesso.entidade.ParametroRelatorio" descricao="ParametroRelatorio" tabela="PARAMETRO_RELATORIO">
+								
+						
+											<atributoMetaData nome="codigoParametroRelatorio" tamanho="BIGINT" tamanhoExibicao="BIGINT" tipo="java.lang.Long" descricao="codigoParametroRelatorio"  identificador='true'   obrigatorio='true'  nomeColuna="CD_PARAMETRO_RELATORIO"/>
+					
+						
+											<atributoMetaData nome="nomeParametro" tamanho="VARCHAR" tamanhoExibicao="VARCHAR" tipo="java.lang.String" descricao="nomeParametro"    obrigatorio='true'  nomeColuna="NM_PARAMETRO"/>
+					
+						
+											<atributoMetaData nome="tipoParametro" tamanho="VARCHAR" tamanhoExibicao="VARCHAR" tipo="java.lang.String" descricao="tipoParametro"    obrigatorio='true'  nomeColuna="TP_PARAMETRO"/>
+					
+						
+											<atributoMetaData nome="mascaraParametro" tamanho="VARCHAR" tamanhoExibicao="VARCHAR" tipo="java.lang.String" descricao="mascaraParametro"    obrigatorio='true'  nomeColuna="MASCARA_PARAMETRO"/>
+							
+									
+		<associacaoMetaData nome="relatorio" tipo="br.gov.al.itec.acesso.entidade.Relatorio" referencia="Relatorio" lista='false' descricao="Relatorio"  obrigatorio='true'/>
+			</entidadeMetaData>
+</entidadesMetaData>

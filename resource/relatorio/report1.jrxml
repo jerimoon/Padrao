@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relCnhVencimentoPorPeriodo" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="87fa1f39-a6d6-4442-9b5f-54721016e061">
+	<property name="ireport.zoom" value="0.9090909090909101"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="nomeUnidadeAdministrativa" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["DEPARTAMENTO DE TRÂNSITO DO ESTADO DE ALAGOAS"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="caminhoImagens" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\W\\SCF\\WebContent\\geral\\img\\admin\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nomeUsuario" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["ROBERTO CARLOS BRAGA"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dataReferencia" class="java.sql.Timestamp" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new java.sql.Timestamp(System.currentTimeMillis()*2)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="status" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["T"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     condutor."id_condutor" AS condutor_id_condutor,
+     condutor."nm_condutor" AS condutor_nm_condutor,
+     condutor."nr_cpf" AS condutor_nr_cpf,
+     condutor."nr_cnh" AS condutor_nr_cnh,
+     condutor."dt_validade_cnh" AS condutor_dt_validade_cnh,
+     setor."id_setor" AS setor_id_setor,
+     setor."nm_setor" AS setor_nm_setor,
+     condutor."id_setor" AS condutor_id_setor,
+     setor."sg_setor" AS setor_sg_setor,
+     condutor."dt_emissao_cnh" AS condutor_dt_emissao_cnh
+FROM
+     "scf"."setor" setor RIGHT OUTER JOIN "scf"."condutor" condutor ON setor."id_setor" = condutor."id_setor"
+WHERE condutor."dt_validade_cnh" < $P{dataReferencia}
+ORDER BY condutor."nm_condutor"]]>
+	</queryString>
+	<field name="condutor_id_condutor" class="java.lang.Long"/>
+	<field name="condutor_nm_condutor" class="java.lang.String"/>
+	<field name="condutor_nr_cpf" class="java.lang.Long"/>
+	<field name="condutor_nr_cnh" class="java.lang.String"/>
+	<field name="condutor_dt_validade_cnh" class="java.sql.Timestamp"/>
+	<field name="setor_id_setor" class="java.lang.Long"/>
+	<field name="setor_nm_setor" class="java.lang.String"/>
+	<field name="condutor_id_setor" class="java.lang.Long"/>
+	<field name="setor_sg_setor" class="java.lang.String"/>
+	<field name="condutor_dt_emissao_cnh" class="java.sql.Timestamp"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="87" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="e55e6586-5b0d-419e-bac4-34fe583b1bac" x="154" y="34" width="266" height="17"/>
+				<textElement>
+					<font fontName="Arial" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sistema de Controle de Frotas]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6b88baef-3823-48b7-852a-90e44f244efd" x="154" y="17" width="521" height="17"/>
+				<textElement>
+					<font fontName="Arial" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nomeUnidadeAdministrativa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="e55e6586-5b0d-419e-bac4-34fe583b1bac" x="154" y="51" width="521" height="17"/>
+				<textElement>
+					<font fontName="Arial" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Listagem de Condutores com CNH a Vencer no Período]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e55e6586-5b0d-419e-bac4-34fe583b1bac" x="154" y="0" width="266" height="17"/>
+				<textElement>
+					<font fontName="Arial" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Governo do Estado de Alagoas]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="4f917692-4235-4d79-90de-65602ed7ee91" x="36" y="0" width="83" height="85"/>
+				<imageExpression><![CDATA[$P{caminhoImagens}+"brasao.png"]]></imageExpression>
+			</image>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="b554afe0-880b-49fd-819e-14320af85935" x="246" y="69" width="100" height="18"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dataReferencia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="6fdc3ec4-3171-47aa-9741-08fdfda96906" x="154" y="69" width="86" height="18"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Referência:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="6fdc3ec4-3171-47aa-9741-08fdfda96906" x="0" y="0" width="55" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a5c9e6f7-be7b-47d2-ac1d-9022502dffcc" x="65" y="0" width="223" height="20"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Condutor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b6839f0a-8249-475e-9771-d54964a35ec7" x="299" y="0" width="79" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1ce6cff6-7a8f-4d12-a621-1806f207dd4e" x="384" y="0" width="67" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CNH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8e3a3231-0294-454e-b532-50ea4b9facbf" x="462" y="1" width="219" height="20"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Setor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1fee26df-12fc-4d10-ac6e-6dfccec62d0d" x="681" y="1" width="55" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Emissão]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2c90a0e0-9c4c-4006-a856-1ecb0dce7e4e" x="741" y="1" width="55" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Validade]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="e720b779-341b-4d24-aced-fa683773413f" x="0" y="20" width="796" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="c7692e52-c4b7-4c6c-8703-4ec9b31abc42" x="0" y="0" width="796" height="18" backcolor="#E6E6E6">
+					<printWhenExpression><![CDATA[new Boolean(($V{COLUMN_COUNT}.intValue() % 2) == 0)]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="1973988d-5c14-4c8a-98e7-49c45673f0e3" x="0" y="0" width="55" height="18"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{condutor_id_condutor}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="29ae381c-9b51-4d33-8e07-5821849ec0ec" x="65" y="0" width="223" height="18"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{condutor_nm_condutor}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement uuid="d42890e1-aa4a-4e13-a313-d9c8850f5bde" x="299" y="0" width="79" height="18"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{condutor_nr_cpf}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="40cec988-2c52-4672-b540-8fe567393994" x="384" y="0" width="67" height="18"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{condutor_nr_cnh}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="f8a49be6-c140-471f-99ad-dc9f9f9e7f7a" x="462" y="0" width="219" height="18"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{setor_nm_setor}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement uuid="e543a8bf-e4cd-499e-95e8-49159c921a61" x="682" y="0" width="55" height="18"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{condutor_dt_emissao_cnh}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement uuid="1cf4cd84-e065-4b54-8676-66547fccfb97" x="741" y="0" width="55" height="18"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{condutor_dt_validade_cnh}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="21" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy HH:mm">
+				<reportElement uuid="5cdd5649-2313-4d96-b020-cbcbf66f9e2d" x="378" y="2" width="100" height="18"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7ae4b1f6-b827-47e6-8a86-f4728016470c" x="683" y="2" width="80" height="18"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" / "]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="d83fda48-4edf-42ed-bd18-72f74541472a" x="764" y="2" width="40" height="18"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="dcfddfec-2e0f-4624-b15d-1f2b42e36772" x="22" y="2" width="341" height="18"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nomeUsuario}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="e720b779-341b-4d24-aced-fa683773413f" x="0" y="1" width="796" height="1"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

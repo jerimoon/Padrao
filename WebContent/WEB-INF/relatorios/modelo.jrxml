@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relCnhVencimentoPorPeriodo" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="87fa1f39-a6d6-4442-9b5f-54721016e061">
+	<property name="ireport.zoom" value="0.7513148009015792"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Padrao" hAlign="Left" vAlign="Middle" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="PadraoNumero" hAlign="Right" vAlign="Middle" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<parameter name="nomeUnidadeAdministrativa" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["DEPARTAMENTO DE TRÂNSITO DO ESTADO DE ALAGOAS"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="caminhoImagens" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\W\\SCF\\WebContent\\geral\\img\\admin\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nomeUsuario" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["ROBERTO CARLOS BRAGA"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nomeRelatorio" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["x"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="identificadorUnidadeAdministrativa" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="87" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="e55e6586-5b0d-419e-bac4-34fe583b1bac" x="108" y="27" width="266" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SISTEMA DE CONTROLE DE FROTAS]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6b88baef-3823-48b7-852a-90e44f244efd" x="108" y="13" width="420" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nomeUnidadeAdministrativa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="e55e6586-5b0d-419e-bac4-34fe583b1bac" x="108" y="41" width="420" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MODELO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e55e6586-5b0d-419e-bac4-34fe583b1bac" x="108" y="-1" width="266" height="14"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[GOVERNO DO ESTADO DE ALAGOAS]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="4f917692-4235-4d79-90de-65602ed7ee91" x="36" y="0" width="60" height="60"/>
+				<imageExpression><![CDATA[$P{caminhoImagens}+"brasao.png"]]></imageExpression>
+			</image>
+			<textField evaluationTime="Report" pattern="" isBlankWhenNull="true">
+				<reportElement uuid="b554afe0-880b-49fd-819e-14320af85935" x="243" y="69" width="100" height="18"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{parametroVinculo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="6fdc3ec4-3171-47aa-9741-08fdfda96906" x="154" y="69" width="86" height="18"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vínculo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6fdc3ec4-3171-47aa-9741-08fdfda96906" x="348" y="69" width="86" height="18"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Status:]]></text>
+			</staticText>
+			<textField evaluationTime="Report" pattern="" isBlankWhenNull="true">
+				<reportElement uuid="b554afe0-880b-49fd-819e-14320af85935" x="437" y="69" width="100" height="18"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{parametroStatus}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<line>
+				<reportElement uuid="e720b779-341b-4d24-aced-fa683773413f" x="0" y="20" width="550" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="c3400205-2319-4659-b32d-48dac43d0b75" x="612" y="2" width="50" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Placa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a1756ae2-fa9a-4a35-9eea-b69c0b67eab6" x="664" y="2" width="63" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vínculo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="80651dc3-90f2-43b0-bd9c-c14bb8c060ba" x="776" y="2" width="24" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ativo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b0abd3dc-7fcb-4f81-b4ee-4a6b668049be" x="539" y="2" width="67" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fabric/Modelo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eebc79b3-582f-4e2d-b0e4-b3dac70e3494" x="318" y="2" width="91" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Marca]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="202287d9-b19e-4d61-9044-a61dc2db02cd" x="420" y="2" width="117" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Modelo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="264930cf-1752-4cb5-84f5-b61e910c6802" x="732" y="2" width="50" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="365caef4-e14f-49a6-af20-4003103af1be" x="22" y="0" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Subsetor]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="45fad7b9-2aeb-4caa-bbc3-bae12de02d90" x="22" y="0" width="291" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sub_setor_nm_sub_setor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="12" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy HH:mm">
+				<reportElement uuid="5cdd5649-2313-4d96-b020-cbcbf66f9e2d" x="167" y="0" width="100" height="12"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7ae4b1f6-b827-47e6-8a86-f4728016470c" x="267" y="0" width="80" height="12"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" / "]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="d83fda48-4edf-42ed-bd18-72f74541472a" x="348" y="0" width="40" height="12"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="dcfddfec-2e0f-4624-b15d-1f2b42e36772" x="0" y="0" width="167" height="12"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nomeUsuario}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="e720b779-341b-4d24-aced-fa683773413f" x="0" y="1" width="550" height="1"/>
+			</line>
+			<textField>
+				<reportElement uuid="3a45eefc-1a58-4d2d-a560-3448cc918251" x="417" y="0" width="138" height="12"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nomeRelatorio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

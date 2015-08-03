@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	<form-beans>
+		<form-bean name="pesquisaGenericaForm" type="br.gov.al.itec.web.PesquisaBaseActionForm"/>
+		<form-bean name="pesquisaIntervaloForm" type="br.gov.al.itec.web.PesquisaIntervaloActionForm"/>
+	</form-beans>
+
+	<action-mappings>
+	</action-mappings>
+
+
+</struts-config>

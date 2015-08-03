@@ -1,0 +1,52 @@
+<andromda>
+	<properties>
+		<property name="modelValidation">false</property>
+	</properties>
+	<server>
+		<host>127.0.0.1</host>
+		<port>4446</port>
+	</server>
+	<repositories>
+		<repository name="netBeansMDR">
+			<models>
+				<model>
+					<uri>jar:file:mda/uml/scf.zargo!/scf.xmi</uri>
+					<moduleSearchLocations>
+						<location>file:mda/uml/andromda-metafacades-emf-uml2-3.3.xml.zip</location>
+						<location>file:mda/uml/andromda-metafacades-uml-3.3.jar</location>
+						<location>file:mda/uml/andromda-profile-3.3.xml.zip</location>
+						<location>file:mda/uml/andromda-profile-datatype-3.3.xml.zip</location>
+						<location>file:mda/uml/andromda-profile-messaging-3.3.xml.zip</location>
+						<location>file:mda/uml/andromda-profile-meta-3.3.xml.zip</location>
+						<location>file:mda/uml/andromda-profile-persistence-3.3.xml.zip</location>
+						<location>file:mda/uml/andromda-profile-presentation-3.3.xml.zip</location>
+						<location>file:mda/uml/andromda-profile-process-3.3.xml.zip</location>
+						<location>file:mda/uml/andromda-profile-service-3.3.xml.zip</location>
+						<location>file:mda/uml/andromda-profile-webservice-3.3.xml.zip</location>
+						<location>file:mda/uml/andromda-profile-xml-3.3.xml.zip</location>
+					</moduleSearchLocations>
+				</model>
+			</models>
+		</repository>
+	</repositories>
+	<namespaces>
+
+		<namespace name="default">
+			<properties>
+			    <property name="languageMappingsUri">file:mda/mappings/JavaMappings.xml</property>
+			    <property name="wrapperMappingsUri">file:mda/mappings/JavaWrapperMappings.xml</property>
+		    </properties>
+		</namespace>    
+
+		<namespace name="cartucho_itec">
+			<properties>
+				<property name="nomeEsquema">frota</property>
+				<property name="javaSource">generated</property>
+				<property name="flexSource">generated-flex</property>
+				<property name="webSource">WebContent/generated</property>
+				<property name="webPersistence">WebContent/WEB-INF/hbm</property>
+			</properties>
+		</namespace>
+
+	</namespaces>
+</andromda>

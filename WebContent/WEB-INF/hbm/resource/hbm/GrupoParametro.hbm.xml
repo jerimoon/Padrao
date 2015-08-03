@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Atencao: - Codigo gerado, nao modifique manualmente. - Uso exclusivo 
+	para hibernate 3.0 - Mapeamento objeto relacional para a entidade: Relatorio 
+	- entidadeHbm.vsl -->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="br.gov.al.itec.acesso.entidade.GrupoParametro"
+		table="TB_GRUPO_PARAMETRO" schema="PUBLIC" dynamic-insert="true"
+		dynamic-update="true">
+		<id name="identificadorGrupoParametro" type="java.lang.Long">
+			<column name="id_grupo_parametro" />
+			<generator class="sequence">
+				<param name="sequence">sq_grupo_parametro</param>
+			</generator>
+		</id>
+
+		<property name="nomeGrupoParametro" type="java.lang.String"
+			not-null="true" lazy="false">
+			<column name="tx_nome_grupo" />
+		</property>
+		
+		<property name="dataGrupoParametro" type="java.sql.Timestamp"
+			not-null="true" lazy="false">
+			<column name="dt_cadastro" />
+		</property>
+		
+		<set name="listaParametro" fetch="select" inverse="true">
+			<key column="cd_grupo_parametro" />
+			<one-to-many class="br.gov.al.itec.acesso.entidade.Parametro" />
+		</set>
+	</class>
+</hibernate-mapping>

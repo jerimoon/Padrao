@@ -1,0 +1,189 @@
+@import url('base.css');
+
+/* FORM ROWS */
+.form-row { overflow:hidden; padding:8px 12px; font-size:11px; border-bottom:1px solid #eee; }
+.form-row img, .form-row input { vertical-align:middle; }
+form .form-row p { padding-left:0; font-size:11px; }
+
+/* FORM LABELS */
+form h4 { margin:0 !important; padding:0 !important; border:none !important; }
+label { font-weight:normal !important; color:#666; font-size:12px; }
+.required label, label.required { font-weight:bold !important; color:#333 !important; }
+
+/* RADIO BUTTONS */
+form ul.radiolist li { list-style-type:none; padding:1px 0}
+form ul.radiolist label { float:none; display:inline; }
+form ul.inline { margin-left:0; padding:0; }
+form ul.inline li { float:left !important; padding-right:7px; }
+
+/* ALIGNED FIELDSETS */
+.aligned label { display:block; padding:3px 10px 0 0; float:left; width:8em; }
+.colMS .aligned .vLargeTextField, .colMS .aligned .vXMLLargeTextField { width:350px; }
+form .aligned p{ margin-left:7em; padding-left:30px; }
+form .aligned ul {margin-left:98px; padding-left:32px;}
+form .aligned table p { margin-left:0; padding-left:0; }
+form .aligned p.help { padding-left:38px; }
+.aligned .vCheckboxLabel { float:none !important; display:inline; padding-left:4px; }
+.colM .aligned .vLargeTextField, .colM .aligned .vXMLLargeTextField { width:610px; }
+.checkbox-row p.help { margin-left:0; padding-left:0 !important; }
+fieldset .field-box { float:left; margin-right: 20px; }
+
+/* WIDE FIELDSETS */
+.wide label { width:15em !important; }
+form .wide p { margin-left:15em; }
+form .wide p.help { padding-left:38px; }
+.colM fieldset.wide .vLargeTextField, .colM fieldset.wide .vXMLLargeTextField { width:450px; }
+
+/* COLLAPSED FIELDSETS */
+fieldset.collapsed * { display:none; }
+fieldset.collapsed h2, fieldset.collapsed { display:block !important; }
+fieldset.collapsed h2 { background-image:url(../img/admin/nav-bg.gif); background-position:bottom left; color:#999; }
+fieldset.collapsed .collapse-toggle { padding:3px 5px !important; background:transparent; display:inline !important;}
+
+/* MONOSPACE TEXTAREAS */
+fieldset.monospace textarea { font-family:"Bitstream Vera Sans Mono",Monaco,"Courier New",Courier,monospace; }
+
+/* SUBMIT ROW */
+.submit-row { 
+	padding:5px 7px; 
+	text-align:right;
+	-moz-border-radius: 5px; -webkit-border-radius: 5px;
+    background:white url(../img/sisbase/bg_paginator.gif) 0 100% repeat-x; 
+    border:1px solid #ccc; 
+    margin:5px 0; 
+    overflow:hidden; 
+}
+.submit-row input { margin:0 0 0 5px; }
+.submit-row p { margin:0.3em; }
+.submit-row p.deletelink-box { float: left; }
+.submit-row .deletelink { background:url(../img/admin/icon_deletelink.gif) 0 50% no-repeat; padding-left:14px; }
+
+/* CUSTOM FORM FIELDS */
+.vSelectMultipleField { vertical-align:top !important; }
+.vCheckboxField { border:none; }
+.vDateField, .vTimeField { margin-right:2px; }
+.vURLField { width:30em; }
+.vLargeTextField, .vXMLLargeTextField { width:48em; }
+.flatpages-flatpage #id_content { height:40.2em; }
+.module table .vPositiveSmallIntegerField { width:2.2em; }
+.vTextField { width:20em; }
+.vIntegerField { width:5em; }
+.vForeignKeyRawIdAdminField { width: 5em; }
+
+/* INLINES */
+.inline-group {padding:0; border:1px solid #ccc; margin:10px 0;}
+.inline-group .aligned label { width: 8em; }
+
+.inline-related {position:relative;}
+.inline-related h3 {margin: 0; color:#666; padding:3px 5px; font-size:11px; background:#e1e1e1 url(../img/admin/nav-bg.gif) top left repeat-x;}
+.inline-related h3 span.delete {padding-left:20px; position:absolute; top:5px; right:10px;}
+.inline-related h3 span.delete label {margin-left:2px; font-size: 11px;}
+.inline-related fieldset {margin: 0; background:#fff; border: none; }
+.inline-related fieldset.module h3 { margin:0; padding:2px 5px 3px 5px; font-size:11px; text-align:left; font-weight:bold; background:#bcd; color:#fff; }
+.inline-related.tabular fieldset.module table {width:100%;}
+.last-related fieldset {border: none;}
+
+.inline-group .tabular tr.has_original td {padding-top:2em;}
+.inline-group .tabular tr td.original { padding:2px 0 0 0; width:0; _position:relative; }
+.inline-group .tabular th.original {width:0px; padding:0;}
+.inline-group .tabular td.original p {left:0; height:1.1em; padding:2px 7px; font-size:9px; font-weight:bold; color:#666; _width:700px;     }
+.inline-group ul.tools {padding:0; margin: 0; list-style:none;}
+.inline-group ul.tools li {display:inline; padding:0 5px;}
+.inline-group ul.tools a.add {background:url(../img/admin/icon_addlink.gif) 0 50% no-repeat; padding-left:14px;}
+
+.ac_input{width:180px;}
+
+#content-main{text-align:left; padding: 0; display:block; height:100%; font-family:Arial, Helvetica, sans-serif;}
+#content-main .tituloh2{ color:#000; font-size:16px; font-weight:bold;margin-bottom:10px; }
+#content-main .tituloh3{ color:#666; font-size:13px; font-weight:bold; margin-bottom:10px; }
+#content-main .tituloh3 input{ color:#666; font-size:11px; font-weight:bold; border:1px solid #ddd; padding:5px; width:125px; margin-right:0; float:right;}
+
+#content-main .gridArea{ background-repeat:repeat-x; background-color:#fafafa; border-bottom:1px solid #ddd; margin:0px 0; padding:5px 0; font-size:11px; color:#666;}
+#content-main .gridArea input{ color:#666; font-size:11px; font-weight:bold; margin-bottom:10px; border:1px solid #ddd; padding:4px !important; width:125px; margin-left: 5px; }
+#content-main .gridArea .labelPesquisa{ background-image:url(../img/admin/icon_searchbox.png); background-repeat:no-repeat; background-position:0 7px; padding-left:15px; margin-left:5px; width:270px; font-size:11px; color:#666; float:left;}
+#content-main .gridArea .labelPesquisaData{ background-image:url(../img/admin/icon_searchbox.png); background-repeat:no-repeat; background-position:0 7px; padding-left:15px; margin-left:5px; width:300px; font-size:11px; color:#666; float:left;}
+#content-main .gridArea .label{ padding: 0 5px; font-size:11px; color:#666; float:left; padding-top:8px;}
+#content-main .gridArea table { margin:5px 0; border-top:1px solid #ddd; }
+#content-main .gridArea table tr{ height:25px;  border:none;}
+#content-main .gridArea table tr.titulo{ font-weight:bold; background-image:url(img/admin/bgTH.jpg); background-repeat:repeat-x;}
+#content-main .gridArea table tr td{ padding-left:5px;border-left:1px solid #ddd; border-bottom:1px solid #ddd;}
+#content-main .paginacao { text-align:center;}
+#content-main .paginacao input{ color:#666; font-size:11px;  border:1px solid #ddd; padding:5px; width:65px; margin-right:0; }
+
+.classPermissao{
+font-family: Arial, Verdana, sans-serif;
+color: #000;
+font-size: 11px;
+padding: 10px;
+border-bottom: 1px solid #EEEEEE !important;
+backgroud: url(../img/sisbase/bg_module_reverse.gif) #fafafa repeat-x 0px 0px;
+}
+
+.gridPerfilFuncionalidade{
+	border-right: 1px solid #C0C0C0;
+}
+
+.panelPermissoes{	
+	width:98%; 
+	text-align:left; 
+	border-color: #ddd;
+	border-width: 1px; 
+	margin:8px; 
+	background: url("../img/sisbase/bg_module_reverse.gif") repeat-x scroll 0 0 #FAFAFA;
+}
+
+.NoBorder{
+	border: 0 !important; 	
+	border-style: none !important;
+	padding: 0px;
+	margin: 0px;
+	vertical-align: middle;
+}
+
+.NoBorder td{
+	border: 0 !important; 	
+	border-style: none !important;
+	padding: 0px !important;
+	margin: 0px !important;
+	vertical-align: middle;
+}
+
+.estiloRadio label{
+	width: 2em !important;
+	display: inline !important;
+	float: inherit !important;
+	margin-top: 0px !important;
+	margin-right: 15px !important;
+	margin-left: 2px !important;
+}
+
+.estiloRadio input{
+	border: none !important;
+	border-style: none !important;
+}
+
+td.colIncluirPopup {
+    padding: 0px 0px 3px 0px !important;
+    color: #666 !important; font-family: Arial, sans-serif !important;
+}
+
+.estiloCalendar td {
+	padding: 1px 1px 1px 1px !important;
+	height: 1px !important;
+}
+
+.rich-calendar-input {
+	margin-right: 5px !important;
+	text-align: right !important;
+}
+
+.estiloPopup {
+	border: 1px !important;
+	border-color: #DDDDDD !important;
+	border-style: solid !important;
+}
+
+.estiloPopup thead th{
+	background: none !important;
+	padding: 4px 10px 3px 10px !important;
+}

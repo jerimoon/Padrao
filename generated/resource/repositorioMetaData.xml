@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<repositorioMetaData>
+<!-- TABELA RELATORIO -->
+<tabelaMetaData nome="RELATORIO" identificador="CD_RELATORIO" classe="Relatorio" primaryKeyConstraint="CNT_RELATORIO_PK" sequenceName="SQ_RELATORIO">
+	<colunaMetaData nome="CD_RELATORIO" tipo="BIGINT" tamanho="${atributo.tamanhoSql}" identificador="true" obrigatorio="true" unico="false" atributo="codigoRelatorio"/>
+	<colunaMetaData nome="NM_RELATORIO" tipo="VARCHAR" tamanho="60" identificador="false" obrigatorio="true" unico="false" atributo="nomeRelatorio"/>
+	<colunaMetaData nome="NM_ARQUIVO" tipo="VARCHAR" tamanho="60" identificador="false" obrigatorio="true" unico="false" atributo="nomeArquivo"/>
+	<colunaMetaData nome="DS_RELATORIO" tipo="VARCHAR" tamanho="300" identificador="false" obrigatorio="true" unico="false" atributo="descricaoRelatorio"/>
+</tabelaMetaData>
+<!-- TABELA PARAMETRO_RELATORIO -->
+<tabelaMetaData nome="PARAMETRO_RELATORIO" identificador="CD_PARAMETRO_RELATORIO" classe="ParametroRelatorio" primaryKeyConstraint="CNT_PARAMETRO_RELATORIO_PK" sequenceName="SQ_PARAMETRO_RELATORIO">
+	<colunaMetaData nome="CD_PARAMETRO_RELATORIO" tipo="BIGINT" tamanho="${atributo.tamanhoSql}" identificador="true" obrigatorio="true" unico="false" atributo="codigoParametroRelatorio"/>
+	<colunaMetaData nome="NM_PARAMETRO" tipo="VARCHAR" tamanho="60" identificador="false" obrigatorio="true" unico="false" atributo="nomeParametro"/>
+	<colunaMetaData nome="TP_PARAMETRO" tipo="VARCHAR" tamanho="60" identificador="false" obrigatorio="true" unico="false" atributo="tipoParametro"/>
+	<colunaMetaData nome="MASCARA_PARAMETRO" tipo="VARCHAR" tamanho="60" identificador="false" obrigatorio="true" unico="false" atributo="mascaraParametro"/>
+	<colunaMetaData nome="CD_RELATORIO" tipo="BIGINT" tamanho="${associacao.tamanhoSql}" identificador="false" obrigatorio="true" unico="true" atributo="relatorio"/>
+	<chaveExtrangeiraMetaData name='PAR_REL_REL_FNK' coluna="CD_PARAMETRO_RELATORIO" tabelaReferenciada="RELATORIO" colunaReferenciada="CD_RELATORIO" />
+	<indiceMetaData nome="PAR_REL_REL_IDX" tabela="PARAMETRO_RELATORIO" coluna="CD_RELATORIO" />
+</tabelaMetaData>
+
+</repositorioMetaData>
+	
+
+
+

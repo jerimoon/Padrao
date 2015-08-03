@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Atencao: - Codigo gerado, nao modifique manualmente. - Uso exclusivo 
+	para hibernate 3.0 - Mapeamento objeto relacional para a entidade: ProventoDesconto 
+	- entidadeHbm.vsl -->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="br.gov.al.itec.acesso.entidade.ProventoDesconto"
+		table="tb_tipo_item_prov_desc" schema="public" dynamic-insert="true"
+		dynamic-update="true">
+		<id name="codigoProventoDesconto" type="java.lang.Long">
+			<column name="cd_item_prov_desc" />
+			<generator class="sequence">
+				<param name="sequence">scf.SQ_RELATORIO</param>
+			</generator>
+		</id>
+
+		<property name="nomeProventoDesconto" type="java.lang.String"
+			not-null="true" lazy="false">
+			<column name="tx_item_prov_desc" />
+		</property>
+		<property name="tipoProventoDesconto" type="java.lang.String"
+			not-null="true" lazy="false">
+			<column name="cd_tipo_verba" />
+		</property>
+	</class>
+</hibernate-mapping>

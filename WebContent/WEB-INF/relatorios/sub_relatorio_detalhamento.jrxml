@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sub_relatorio_detalhamento" language="groovy" columnCount="3" printOrder="Horizontal" pageWidth="550" pageHeight="842" columnWidth="183" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="f8a88007-9ed0-4e38-b0b5-2d29a4ebcb6b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="numeroMatricula" class="java.lang.String"/>
+	<parameter name="listaProventoSelecionado" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     tb_item_lancamento.vl_item_lancamento ,
+     tb_item_lancamento.dt_ano_mes,
+     tb_tipo_item_prov_desc.tx_item_prov_desc
+FROM
+     public.tb_tipo_item_prov_desc ,
+     public.tb_item_lancamento
+where tb_tipo_item_prov_desc.cd_item_prov_desc = tb_item_lancamento.cd_item_prov_desc
+and tb_item_lancamento.nr_matricula = $P{numeroMatricula}
+and tb_item_lancamento.cd_item_prov_desc IN ($P!{listaProventoSelecionado})
+and tb_item_lancamento.dt_ano_mes <to_date('01/07/2008','dd/MM/yyyy')
+ AND tb_item_lancamento.dt_ano_mes > to_date('01/11/1998','dd/MM/yyyy')
+order by tb_item_lancamento.dt_ano_mes,tb_tipo_item_prov_desc.tx_item_prov_desc]]>
+	</queryString>
+	<field name="vl_item_lancamento" class="java.math.BigDecimal"/>
+	<field name="dt_ano_mes" class="java.sql.Date"/>
+	<field name="tx_item_prov_desc" class="java.lang.String"/>
+	<variable name="vl_item_lancamento_1" class="java.math.BigDecimal" resetType="Group" resetGroup="gr_ano_mes" calculation="Sum">
+		<variableExpression><![CDATA[$F{vl_item_lancamento}]]></variableExpression>
+	</variable>
+	<group name="gr_ano_mes" keepTogether="true">
+		<groupExpression><![CDATA[$F{dt_ano_mes}]]></groupExpression>
+		<groupHeader>
+			<band height="19">
+				<textField pattern="MMM/yyyy">
+					<reportElement x="0" y="3" width="100" height="16" uuid="28b895ea-e966-4f42-90a5-50aebb254e97"/>
+					<textElement verticalAlignment="Bottom">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{dt_ano_mes}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="16">
+				<textField>
+					<reportElement x="450" y="0" width="100" height="16" uuid="f0d8c6b0-dd60-4f43-8b92-3fca1f474342"/>
+					<textElement textAlignment="Right">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{vl_item_lancamento_1}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="414" y="0" width="36" height="16" uuid="647b0610-461f-40b1-a650-41b4020c6563"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total:]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<detail>
+		<band height="14">
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="115" y="0" width="57" height="14" uuid="9a23a715-8f3c-4cf8-9b46-eb94d55aad5c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{vl_item_lancamento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="126" height="14" uuid="624cce7a-7dbf-4495-b994-5319ba665344"/>
+				<textFieldExpression><![CDATA[$F{tx_item_prov_desc}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<tiles-definitions>
+	<!-- super modelos -->
+	<definition name=".layoutCadastro" path="/geral/layoutCadastro.jsp">
+		<put name="titulo" value="Relatório de Fichas Financeiras - Correios" />
+		<put name="menu" value="/geral/menu.jsp" />
+		<put name="corpo" value="" />
+		<put name="rodape" value="/geral/rodape.jsp" />
+		<put name="cabecalhoItec" value="/geral/cabecalhoItec.jsp" />
+		<put name="scripts" value="/geral/jsloaderItec.jsp" />
+
+	</definition>
+	<definition name=".layoutMensagem" path="/geral/layoutMensagem.jsp">
+		<put name="titulo" value="SCF - Sistema de Controle de Frotas" />
+		<put name="corpo" value="/geral/logon.jsp" />
+		<put name="rodape" value="/geral/rodape.jsp" />
+		<put name="cabecalhoItec" value="/geral/cabecalhoItec.jsp" />
+		<put name="scripts" value="/geral/jsloaderItec.jsp" />
+
+	</definition>
+
+
+	<definition name=".layoutAba" path="/geral/layoutAba.jsp">
+		<put name="corpo" value="" />
+	</definition>
+	<definition name=".layoutLov" path="/geral/layoutLov.jsp">
+		<put name="corpo" value="" />
+	</definition>
+	<definition name=".layoutPopup" path="/geral/layoutPopup.jsp">
+		<put name="corpo" value="" />
+	</definition>
+	
+	
+	<definition name=".listaGrupoParametro" extends=".layoutPopup">
+		<put name="corpo" value="/geral/listaGrupoParametros.jsp" />
+	</definition>
+	<definition name=".popUpGrupoParametroForm" extends=".layoutPopup">
+		<put name="corpo" value="/geral/popup/popUpGrupoParametroForm.jsp" />
+	</definition>
+	<definition name=".inicio" extends=".layoutCadastro">
+		<put name="corpo" value="/geral/inicio.jsp" />
+	</definition>
+
+	<definition name=".erroAutenticacao" extends=".layoutMensagem">
+		<put name="corpo" value="/erroGeral.jsp" />
+	</definition>
+	<definition name=".sessaoEncerrada" extends=".layoutMensagem">
+		<put name="corpo" value="/geral/sessaoEncerrada.jsp" />
+	</definition>
+
+<!-- CADASTROS -->
+
+
+
+<!-- Condutor -->
+	<definition name=".cadastroCondutor" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/cadastroCondutor.jsp" />
+	</definition>
+	<definition name=".pesquisaCondutor" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/pesquisaCondutor.jsp" />
+	</definition>
+	
+	<definition name=".abaCondutor" extends=".layoutAba">
+		<put name="corpo" value="/cadastro/abaCadastroCondutor.jsp" />
+	</definition>
+	
+	<definition name=".abaListaRenovacaoCnh" extends=".layoutAba">
+		<put name="corpo" value="/cadastro/abaListaRenovacaoCnh.jsp" />
+	</definition>
+	<definition name=".abaCadastroRenovacaoCnh" extends=".layoutAba">
+		<put name="corpo" value="/cadastro/abaCadastroRenovacaoCnh.jsp" />
+	</definition>
+	<definition name=".lovCondutor" extends=".layoutLov">
+		<put name="corpo" value="/cadastro/lov/lovCondutor.jsp" />
+	</definition>	
+	
+<!-- Modelo -->
+	<definition name=".cadastroModelo" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/cadastroModelo.jsp" />
+	</definition>
+	<definition name=".pesquisaModelo" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/pesquisaModelo.jsp" />
+	</definition>	
+<!-- Veiculo -->
+	<definition name=".cadastroVeiculo" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/veiculo/cadastroVeiculo.jsp" />
+	</definition>
+	<definition name=".abaCadastroVeiculo" extends=".layoutAba">
+		<put name="corpo" value="/cadastro/veiculo/abaCadastroVeiculo.jsp" />
+	</definition>
+	<definition name=".abaListaArquivoVeiculo" extends=".layoutAba">
+		<put name="corpo" value="/cadastro/veiculo/abaListaArquivoVeiculo.jsp" />
+	</definition>
+	<definition name=".abaListaHistoricoVeiculo" extends=".layoutAba">
+		<put name="corpo" value="/cadastro/veiculo/abaListaHistoricoVeiculo.jsp" />
+	</definition>
+	<definition name=".pesquisaVeiculo" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/veiculo/pesquisaVeiculo.jsp" />
+	</definition>	
+	<!-- Lov Veículo -->
+	<definition name=".lovVeiculo" extends=".layoutLov">
+		<put name="corpo" value="/cadastro/lov/lovVeiculo.jsp" />
+	</definition>
+	
+	<!-- PadraoVeiculo -->
+	<definition name=".cadastroPadraoVeiculo" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/cadastroPadraoVeiculo.jsp" />
+	</definition>
+	<definition name=".pesquisaPadraoVeiculo" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/pesquisaPadraoVeiculo.jsp" />
+	</definition>
+	<!-- ModeloVistoria -->
+	<definition name=".cadastroModeloVistoria" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/cadastroModeloVistoria.jsp" />
+	</definition>
+	<definition name=".pesquisaModeloVistoria" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/pesquisaModeloVistoria.jsp" />
+	</definition>
+	<definition name=".abaCadastroModeloVistoria" extends=".layoutAba">
+		<put name="corpo" value="/cadastro/abaCadastroModeloVistoria.jsp" />
+	</definition>
+	<!-- ItemModeloVistoria -->
+	<definition name=".abaCadastroItemModeloVistoria" extends=".layoutAba">
+		<put name="corpo" value="/cadastro/abaCadastroItemModeloVistoria.jsp" />
+	</definition>
+	<definition name=".abaListaItemModeloVistoria" extends=".layoutAba">
+		<put name="corpo" value="/cadastro/abaListaItemModeloVistoria.jsp" />
+	</definition>
+<!-- OrgaoNotificador -->
+	<definition name=".cadastroOrgaoNotificador" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/cadastroOrgaoNotificador.jsp" />
+	</definition>
+	<definition name=".pesquisaOrgaoNotificador" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/pesquisaOrgaoNotificador.jsp" />
+	</definition>
+<!-- Infracao -->
+	<definition name=".cadastroInfracao" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/cadastroInfracao.jsp" />
+	</definition>
+	<definition name=".pesquisaInfracao" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/pesquisaInfracao.jsp" />
+	</definition>
+	<definition name=".abaCadastroInfracao" extends=".layoutAba">
+		<put name="corpo" value="/cadastro/abaCadastroInfracao.jsp" />
+	</definition>
+	<definition name=".abaListaTramitacaoInfracao" extends=".layoutAba">
+		<put name="corpo" value="/cadastro/abaListaTramitacaoInfracao.jsp" />
+	</definition>
+	<definition name=".abaListaArquivoInfracao" extends=".layoutAba">
+		<put name="corpo" value="/cadastro/infracao/abaListaArquivoInfracao.jsp" />
+	</definition>
+<!-- Avaria -->
+	<definition name=".cadastroAvaria" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/cadastroAvaria.jsp" />
+	</definition>
+	<definition name=".pesquisaAvaria" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/pesquisaAvaria.jsp" />
+	</definition>
+	<definition name=".abaCadastroAvaria" extends=".layoutAba">
+		<put name="corpo" value="/cadastro/abaCadastroAvaria.jsp" />
+	</definition>
+	<definition name=".abaListaArquivoAvaria" extends=".layoutAba">
+		<put name="corpo" value="/cadastro/avaria/abaListaArquivoAvaria.jsp" />
+	</definition>
+	<definition name=".abaListaTramitacaoAvaria" extends=".layoutAba">
+		<put name="corpo" value="/cadastro/abaListaTramitacaoAvaria.jsp" />
+	</definition>	
+<!-- Acidente -->
+	<definition name=".cadastroAcidente" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/acidente/cadastroAcidente.jsp" />
+	</definition>
+	<definition name=".pesquisaAcidente" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/acidente/pesquisaAcidente.jsp" />
+	</definition>
+	<definition name=".abaCadastroAcidente" extends=".layoutAba">
+		<put name="corpo" value="/cadastro/acidente/abaCadastroAcidente.jsp" />
+	</definition>
+	<definition name=".abaListaArquivoAcidente" extends=".layoutAba">
+		<put name="corpo" value="/cadastro/acidente/abaListaArquivoAcidente.jsp" />
+	</definition>
+	<definition name=".abaListaTramitacaoAcidente" extends=".layoutAba">
+		<put name="corpo" value="/cadastro/acidente/abaListaTramitacaoAcidente.jsp" />
+	</definition>
+<!-- AgendamentoManutencao -->
+	<definition name=".cadastroAgendamentoManutencao" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/cadastroAgendamentoManutencao.jsp" />
+	</definition>
+	<definition name=".pesquisaAgendamentoManutencao" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/pesquisaAgendamentoManutencao.jsp" />
+	</definition>
+<!-- Manutencao -->
+	<definition name=".cadastroManutencao" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/cadastroManutencao.jsp" />
+	</definition>
+	<definition name=".pesquisaManutencao" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/pesquisaManutencao.jsp" />
+	</definition>
+<!-- SaidaVeiculo -->
+	<definition name=".cadastroSaidaVeiculo" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/cadastroSaidaVeiculo.jsp" />
+	</definition>
+	<definition name=".pesquisaSaidaVeiculo" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/pesquisaSaidaVeiculo.jsp" />
+	</definition>
+<!-- Vistoria -->
+	<definition name=".cadastroVistoria" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/vistoria/cadastroVistoria.jsp" />
+	</definition>
+	<definition name=".pesquisaVistoria" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/vistoria/pesquisaVistoria.jsp" />
+	</definition>
+	<definition name=".abaCadastroVistoria" extends=".layoutAba">
+		<put name="corpo" value="/cadastro/vistoria/abaCadastroVistoria.jsp" />
+	</definition>
+	<definition name=".abaListaRespostasVistoria" extends=".layoutAba">
+		<put name="corpo" value="/cadastro/vistoria/abaListaRespostasVistoria.jsp" />
+	</definition>
+<!-- AutorizacaoVeiculo -->
+	<definition name=".cadastroAutorizacaoVeiculo" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/cadastroAutorizacaoVeiculo.jsp" />
+	</definition>
+	<definition name=".pesquisaAutorizacaoVeiculo" extends=".layoutCadastro">
+		<put name="corpo" value="/cadastro/pesquisaAutorizacaoVeiculo.jsp" />
+	</definition>	
+	
+	
+	<!-- RELATORIOS -->
+	<definition name=".relListagemVeiculoPorSetor" extends=".layoutCadastro">
+		<put name="corpo" value="/relatorio/relListagemVeiculoPorSetor.jsp" />
+	</definition>
+	<definition name=".relCnhVencimentoPorPeriodo" extends=".layoutCadastro">
+		<put name="corpo" value="/relatorio/relCnhVencimentoPorPeriodo.jsp" />
+	</definition>
+	<definition name=".relCustoContratoLocacao" extends=".layoutCadastro">
+		<put name="corpo" value="/relatorio/relCustoContratoLocacao.jsp" />
+	</definition>
+	<definition name=".relCustoContratoLocacaoGeral" extends=".layoutCadastro">
+		<put name="corpo" value="/relatorio/relCustoContratoLocacaoGeral.jsp" />
+	</definition>
+	<definition name=".relSaidaVeiculoPorPeriodo" extends=".layoutCadastro">
+		<put name="corpo" value="/relatorio/relSaidaVeiculoPorPeriodo.jsp" />
+	</definition>
+	<definition name=".relFormCadastroVistoria" extends=".layoutCadastro">
+		<put name="corpo" value="/relatorio/relFormCadastroVistoria.jsp" />
+	</definition>
+</tiles-definitions>

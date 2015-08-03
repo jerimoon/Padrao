@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_meses_sem_lancamento" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c8a176fe-44a3-40d0-bee1-a74ccf1c79d0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select msl.*, dt_inicio_afastamento, dt_fim_afastamento, fa.tx_motivo
+  from tb_mes_sem_lancamento msl
+     , tb_funcionario_perito fp left outer join tb_funcionario_afastamento fa  on(fp.nr_matricula = fa.nr_matricula)
+
+  where tx_todos_meses <> '0'
+    and msl.nr_matricula = fp.nr_matricula
+
+  order by msl.nr_grupo, nr_ordem, dt_inicio_afastamento]]>
+	</queryString>
+	<field name="nr_grupo" class="java.lang.Integer"/>
+	<field name="nr_matricula" class="java.lang.String"/>
+	<field name="tx_cpf" class="java.lang.String"/>
+	<field name="tx_nome" class="java.lang.String"/>
+	<field name="dt_admissao" class="java.sql.Date"/>
+	<field name="dt_desligamento" class="java.sql.Date"/>
+	<field name="tx_meses" class="java.lang.String"/>
+	<field name="tx_todos_meses" class="java.lang.String"/>
+	<field name="dt_inicio_afastamento" class="java.sql.Date"/>
+	<field name="dt_fim_afastamento" class="java.sql.Date"/>
+	<field name="tx_motivo" class="java.lang.String"/>
+	<variable name="nr_grupo_1" class="java.lang.Integer" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{nr_matricula}]]></variableExpression>
+	</variable>
+	<group name="grupo">
+		<groupExpression><![CDATA[$F{nr_grupo}]]></groupExpression>
+		<groupHeader>
+			<band height="38">
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="2" y="0" width="553" height="38" isPrintWhenDetailOverflows="true" uuid="fe017a66-e6e1-4256-9393-07da9505d672"/>
+					<staticText>
+						<reportElement x="11" y="17" width="120" height="18" uuid="1a119b1d-1942-484e-bbd1-99e88d2f0663"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font size="9"/>
+						</textElement>
+						<text><![CDATA[Meses sem Lançamentos:]]></text>
+					</staticText>
+					<textField isBlankWhenNull="true">
+						<reportElement x="11" y="0" width="46" height="18" uuid="8260d40c-52d9-4e4d-9f82-67e4e3db6bef"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression><![CDATA[$F{nr_grupo}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="66" y="0" width="65" height="18" uuid="9a0bf904-29ec-47f1-9513-daa524eb6393"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression><![CDATA[$F{nr_matricula}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="131" y="0" width="237" height="18" uuid="1d23ad10-afae-4b5a-81c3-5d0206cef1a7"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression><![CDATA[$F{tx_nome}]]></textFieldExpression>
+					</textField>
+					<textField pattern="dd/MM/yyyy">
+						<reportElement x="423" y="0" width="65" height="18" uuid="21bc61c2-7e7e-4d2c-9bde-072fbb9d093c"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression><![CDATA[$F{dt_admissao}]]></textFieldExpression>
+					</textField>
+					<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+						<reportElement x="488" y="0" width="65" height="18" uuid="536824a2-d825-4974-8ea9-c5cb819a0465"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression><![CDATA[$F{dt_desligamento}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true">
+						<reportElement stretchType="RelativeToBandHeight" x="131" y="17" width="420" height="18" isPrintWhenDetailOverflows="true" uuid="9c132018-8006-469c-8e3d-e3d469bdfb28"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression><![CDATA[$F{tx_todos_meses}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="48" splitType="Stretch">
+			<staticText>
+				<reportElement x="22" y="6" width="518" height="28" uuid="bcdb63a3-809e-469f-ba3e-688c3f2dad48"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Lista de Funcionários com Lançamentos Incompletos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="194" y="34" width="174" height="14" uuid="087eafe3-fa16-444a-b191-e302e7ff059e"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Período de: 12/1998 a 06/2008]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="2" width="46" height="20" uuid="0f6a17a9-a8ba-42d6-9c2c-dcd11dd676b7"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Grupo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="2" width="65" height="20" uuid="89cea202-f463-46fa-a5f8-77617c0ae4c9"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Mátricula]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="131" y="2" width="100" height="20" uuid="1695032c-4df0-406a-929d-f18444a2478a"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="423" y="2" width="65" height="20" uuid="cfae58b6-ea86-47c9-a59a-b52736e467b1"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Admissão]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="488" y="2" width="65" height="20" uuid="ba6a4379-2230-431c-95d7-fc2dfc7a4a7c"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Desligamento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Prevent">
+			<printWhenExpression><![CDATA[$F{dt_inicio_afastamento}!=null]]></printWhenExpression>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="72" y="0" width="61" height="20" uuid="8138f463-1c9a-4ed6-a2ca-000a1820fa5c"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{dt_inicio_afastamento}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="147" y="0" width="61" height="20" uuid="ec08cc7a-1a43-478e-ac20-6ac7612fb09d"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{dt_fim_afastamento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="268" y="0" width="272" height="20" uuid="2850d1e7-59b3-4877-83b1-cefa9d4626d5"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{tx_motivo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="0" width="66" height="20" uuid="883e8f34-f1f7-48ca-a615-b3ea039958c2"/>
+				<textElement verticalAlignment="Top"/>
+				<text><![CDATA[Afastado de:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="133" y="0" width="13" height="20" uuid="1aada35f-a4b4-4c82-b3ee-18f8ea85a6ec"/>
+				<textElement verticalAlignment="Top"/>
+				<text><![CDATA[a ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="218" y="0" width="50" height="20" uuid="775f6ac3-0b6e-41bb-bf85-75819b80cfd7"/>
+				<textElement verticalAlignment="Top"/>
+				<text><![CDATA[Motivo:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="208" y="10" width="80" height="20" uuid="9e292f9f-9d4d-49d7-a650-72c00454beae"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="288" y="10" width="40" height="20" uuid="7d480443-6c87-4eda-821c-68c18d96ba6e"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="488" y="0" width="52" height="20" uuid="efc2bf5b-dfe1-435f-a024-58dbbd392c59"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{nr_grupo_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="379" y="0" width="109" height="20" uuid="5aae7224-71de-4b33-87a9-66136dd69eb5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Total de Funcionários:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

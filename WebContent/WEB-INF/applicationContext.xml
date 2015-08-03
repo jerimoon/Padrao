@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<!-- Arquivo de configuração de acesso ao banco -->
+
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource"><ref bean="dataSource"/></property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.query.substitutions">true 'S', false 'N'</prop>
+			    <prop key="hibernate.default_schema">public</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.c3p0.max_size">50</prop>
+				<prop key="hibernate.c3p0.min_size">5</prop>
+				<prop key="hibernate.c3p0.timeout">5000</prop>
+				<prop key="hibernate.c3p0.max_statements">1000</prop>
+				<prop key="hibernate.c3p0.idle_test_period">3000</prop>
+				<prop key="hibernate.c3p0.validate">false</prop>
+				<prop key="hibernate.proxool.pool_alias">pool1</prop>
+				<prop key="hibernate.max_fetch_depth">1</prop>
+				<prop key="hibernate.cglib.use_reflection_optimizer">true</prop>
+				<prop key="hibernate.jdbc.batch_size">0</prop>
+				<prop key="hibernate.jdbc.batch_versioned_data">true</prop>
+				<prop key="hibernate.jdbc.use_streams_for_binary">true</prop>
+				<prop key="hibernate.cache.region_prefix">hibernate.test</prop>
+			</props>
+		</property>
+		<property name="mappingDirectoryLocations">
+			<list>
+				<value>WEB-INF/hbm/resource/hbm/</value>
+ 			</list>
+		</property>
+	</bean>
+	<bean id="nomeServidorProducao" class="java.lang.String">
+		<constructor-arg>
+			<value>frotas.itec.al.gov.br</value>
+		</constructor-arg>
+	</bean>
+	<bean id="catalogoRegraNegocio" class="br.gov.al.itec.negocio.CatalogoRegraNegocio">
+ 
+		<property name="controleGeral">
+			<bean id="controleGeral" class="br.gov.al.itec.geral.controle.ControleGeral">
+				<constructor-arg>
+					<ref bean="catalogoRegraNegocio"/>
+				</constructor-arg>
+			</bean>
+		</property>
+		<property name="controleCrud">
+			<bean id="controleCrud" class="br.gov.al.itec.geral.controle.ControleCrud">
+				<constructor-arg>
+					<ref bean="catalogoRegraNegocio"/>
+				</constructor-arg>
+			</bean>
+		</property>
+		
+
+		<property name="controleGenerico">
+			<bean id="controleGenerico" class="br.gov.al.itec.scf.controle.ControleGenericoImpl">
+				<constructor-arg>
+					<ref bean="catalogoRegraNegocio"/>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName">
+			<value>java:comp/env/jdbc/ffDS</value>
+		</property>
+	</bean> 
+	
+
+	<bean id="fachadaImpl" class="br.gov.al.itec.negocio.FachadaImpl" destroy-method="close" >
+		<property name="catalogoRegraNegocio" ref="catalogoRegraNegocio"/>
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="transactionInterceptor" class="br.gov.al.itec.util.repositorio.TransactionInterceptor"/>
+
+	<bean id="trasactionPointCutAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property name="patterns" >
+			<list>
+				<value>.*salvar.*</value>
+				<value>.*executar.*</value>
+				<value>.*gerar.*</value>
+				<value>.*excluir.*</value>
+				<value>.*apagar.*</value>
+				<value>.*alterarSenha.*</value>
+				<value>.*importar.*</value>
+			</list>
+		</property>
+		<property name="advice" ref="transactionInterceptor"/>
+	</bean>
+
+	<bean id="fachada" class="org.springframework.aop.framework.ProxyFactoryBean" >
+
+		<property name="target" ref="fachadaImpl"/>
+
+		<property name="proxyInterfaces">
+			<value>br.gov.al.itec.negocio.Fachada</value>
+		</property>
+
+		<property name="interceptorNames">
+			<list>
+				<value>trasactionPointCutAdvisor</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- fim fachada -->
+
+</beans>
+

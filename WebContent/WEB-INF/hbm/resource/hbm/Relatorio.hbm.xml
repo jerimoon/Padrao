@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+Atencao:
+
+     - Codigo gerado, nao modifique manualmente.
+     - Uso exclusivo para hibernate 3.0
+     - Mapeamento objeto relacional para a entidade: Relatorio
+     - entidadeHbm.vsl
+     
+-->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="br.gov.al.itec.acesso.entidade.Relatorio" table="RELATORIO" schema="scf" dynamic-insert="true" dynamic-update="true">
+				<id name="codigoRelatorio" type="java.lang.Long">
+            <column name="CD_RELATORIO"/>
+            <generator class="sequence">
+                <param name="sequence">scf.SQ_RELATORIO</param>
+            </generator> 
+        </id>
+
+								        													        <property name="nomeRelatorio" type="java.lang.String" not-null="true" lazy="false">
+	            <column name="NM_RELATORIO" />
+	        </property>
+	                													        <property name="nomeArquivo" type="java.lang.String" not-null="true" lazy="false">
+	            <column name="NM_ARQUIVO" />
+	        </property>
+	                													        <property name="descricaoRelatorio" type="java.lang.String" not-null="true" lazy="false">
+	            <column name="DS_RELATORIO" />
+	        </property>
+	                						
+		
+				
+									<set name="listaParametro" fetch="select" inverse="true"  >
+            <key column="CD_RELATORIO" />
+				        <one-to-many class="br.gov.al.itec.acesso.entidade.ParametroRelatorio"/>
+        </set>
+    	    		    </class>
+</hibernate-mapping>

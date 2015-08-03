@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib 
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+    version="2.1">
+
+    <display-name>Funções Itec</display-name>    
+    <tlib-version>1.0</tlib-version>
+    <short-name>functions</short-name>
+    <uri>http://itec.al.gov.br/functions</uri>
+    <function>
+        <name>maskTipoVinculo</name>
+        <function-class>br.gov.al.itec.util.struts.TipoVinculoDecorator</function-class>
+        <function-signature>java.lang.String maskTipoVinculo(java.lang.Object)</function-signature>
+    </function>
+    <function>
+        <name>maskTipoManutencao</name>
+        <function-class>br.gov.al.itec.util.struts.TipoManutencaoDecorator</function-class>
+        <function-signature>java.lang.String maskTipoManutencao(java.lang.Object)</function-signature>
+    </function>
+    <function>
+        <name>maskStatusManutencao</name>
+        <function-class>br.gov.al.itec.util.struts.StatusManutencaoDecorator</function-class>
+        <function-signature>java.lang.String maskStatusManutencao(java.lang.Object)</function-signature>
+    </function>
+    <function>
+        <name>maskStatusVeiculo</name>
+        <function-class>br.gov.al.itec.util.struts.StatusVeiculoDecorator</function-class>
+        <function-signature>java.lang.String maskStatusVeiculo(java.lang.Object)</function-signature>
+    </function>
+    <function>
+        <name>maskStatusInfracao</name>
+        <function-class>br.gov.al.itec.util.struts.StatusInfracaoDecorator</function-class>
+        <function-signature>java.lang.String maskStatusInfracao(java.lang.Object)</function-signature>
+    </function>
+    <function>
+        <name>maskStatusAvaria</name>
+        <function-class>br.gov.al.itec.util.struts.StatusAvariaDecorator</function-class>
+        <function-signature>java.lang.String maskStatusAvaria(java.lang.Object)</function-signature>
+    </function>
+    <function>
+        <name>maskStatusAcidente</name>
+        <function-class>br.gov.al.itec.util.struts.StatusAcidenteDecorator</function-class>
+        <function-signature>java.lang.String maskStatusAcidente(java.lang.Object)</function-signature>
+    </function>
+    <function>
+        <name>maskStatusVistoria</name>
+        <function-class>br.gov.al.itec.util.struts.StatusVistoriaDecorator</function-class>
+        <function-signature>java.lang.String maskStatusVistoria(java.lang.Object)</function-signature>
+    </function>
+    <function>
+        <name>maskStatusAgendamentoManutencao</name>
+        <function-class>br.gov.al.itec.util.struts.StatusAgendamentoManutencaoDecorator</function-class>
+        <function-signature>java.lang.String maskStatusAgendamentoManutencao(java.lang.Object)</function-signature>
+    </function>
+    <function>
+        <name>maskTipoAgendamentoManutencao</name>
+        <function-class>br.gov.al.itec.util.struts.TipoAgendamentoManutencaoDecorator</function-class>
+        <function-signature>java.lang.String maskTipoAgendamentoManutencao(java.lang.Object)</function-signature>
+    </function>
+    <function>
+        <name>maskStatusSaidaVeiculo</name>
+        <function-class>br.gov.al.itec.util.struts.StatusSaidaVeiculoDecorator</function-class>
+        <function-signature>java.lang.String maskStatusSaidaVeiculo(java.lang.Object)</function-signature>
+    </function>
+    <function>
+        <name>dataAtual</name>
+        <function-class>br.gov.al.itec.util.Utilidades</function-class>
+        <function-signature>java.sql.Timestamp dataAtual()</function-signature>
+    </function>
+</taglib>

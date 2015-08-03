@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_conferencia_valor" language="groovy" pageWidth="595" pageHeight="842" columnWidth="539" leftMargin="28" rightMargin="28" topMargin="20" bottomMargin="20" uuid="5dcd03fd-cb09-4361-8329-6fd95c570a8f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[".\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="listaProventoSelecionado" class="java.lang.String"/>
+	<parameter name="numeroGrupo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="numeroLote" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     f."nr_matricula" AS Matricula,
+     f."tx_nome" AS Nome,
+     f."tx_cpf" AS Cpf,
+     f."dt_admissao" AS Admissao,
+     c."tx_cargo" AS Cargo,
+     fu."dt_desligamento" AS Desligamento,
+     fu."nr_grupo" AS Grupo,
+     fu."tx_motivo" AS Motivo
+FROM
+     "tb_funcionario" f INNER JOIN "tb_cargo_funcionario" c ON f."nr_matricula" = c."nr_matricula"
+     INNER JOIN "tb_funcionario_perito" fu ON f."nr_matricula" = fu."nr_matricula"
+WHERE COALESCE(FU.NR_GRUPO,0) = $P!{numeroGrupo}
+
+and f.nr_lote in ($P!{numeroLote})
+ORDER BY
+     fu.nr_grupo ASC,fu.nr_ordem, f."dt_admissao"]]>
+	</queryString>
+	<field name="matricula" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="cpf" class="java.lang.String"/>
+	<field name="admissao" class="java.sql.Date"/>
+	<field name="cargo" class="java.lang.String"/>
+	<field name="desligamento" class="java.sql.Date"/>
+	<field name="grupo" class="java.lang.Integer"/>
+	<field name="motivo" class="java.lang.String"/>
+	<group name="g_grupo" isStartNewPage="true" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[$F{grupo}]]></groupExpression>
+		<groupHeader>
+			<band height="61">
+				<staticText>
+					<reportElement x="0" y="20" width="30" height="20" uuid="a64d2996-610a-4b62-90f5-4fbd2a5b66b1"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[CPF:]]></text>
+				</staticText>
+				<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+					<reportElement x="183" y="41" width="61" height="20" uuid="8bf3a7c0-be97-4fd5-b681-c0d2a92985c2"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{admissao}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="121" y="20" width="40" height="20" uuid="1a3693d6-23f1-4825-ba65-080773e251c5"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Cargo:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="30" y="20" width="91" height="20" isPrintWhenDetailOverflows="true" uuid="611ccf59-1c43-4aa9-afaf-bbfa01ef39f4"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="30" y="0" width="80" height="20" isPrintWhenDetailOverflows="true" uuid="c9bc1057-f390-4013-889c-240fb461d32b"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{matricula}]]></textFieldExpression>
+				</textField>
+				<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+					<reportElement x="342" y="41" width="61" height="20" uuid="9145560c-9e6a-4b31-940d-91e22d05a714"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{desligamento}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="121" y="0" width="40" height="20" uuid="a49eab68-a845-49a5-98de-940f0c49d025"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nome:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="0" width="30" height="20" uuid="20e300af-bd91-401d-b40b-06dcf169cb20"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Mat:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="121" y="41" width="62" height="20" uuid="a5ef3912-8354-4093-b772-e1fa91a758f9"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Admissão:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="162" y="20" width="331" height="20" isPrintWhenDetailOverflows="true" uuid="12eb6bcb-8e07-422b-8781-e7e65d279068"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cargo}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="256" y="41" width="86" height="20" uuid="324e6b97-ebc5-4bce-8de1-2ee8d75d82c2"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Desligamento:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="162" y="0" width="286" height="20" isPrintWhenDetailOverflows="true" uuid="f61e9cbb-0227-42bf-9d65-f49ae682ed8a"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="41" width="40" height="20" uuid="b70e06b8-9597-43e6-95c9-f39111519d8c"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Grupo:]]></text>
+				</staticText>
+				<textField pattern="000" isBlankWhenNull="true">
+					<reportElement x="40" y="41" width="39" height="20" uuid="4783280b-f25b-42b1-817f-03e611d6b79b"/>
+					<textFieldExpression><![CDATA[$F{grupo}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="128" splitType="Stretch">
+			<subreport isUsingCache="false">
+				<reportElement x="0" y="0" width="539" height="125" uuid="134eb0fb-5176-4bcd-b050-eaf47219e487"/>
+				<subreportParameter name="numeroMatricula">
+					<subreportParameterExpression><![CDATA[$F{matricula}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="listaProventoSelecionado">
+					<subreportParameterExpression><![CDATA[$P{listaProventoSelecionado}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "sub_relatorio_detalhamento.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="131" y="0" width="146" height="20" isPrintWhenDetailOverflows="true" uuid="8ae2b805-f21b-44d5-ba61-1661f158e9a4"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="277" y="0" width="108" height="20" uuid="40dd0b81-1397-4b0b-82ff-74658aee6ed6"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
